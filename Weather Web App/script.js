@@ -1,3 +1,22 @@
+let unix_timestamp = 1549312452
+// Create a new JavaScript Date object based on the timestamp
+// multiplied by 1000 so that the argument is in milliseconds, not seconds.
+let formattedTime = (timestamp) => {
+    let date = new Date(timestamp * 1000);
+    // Hours part from the timestamp
+    let hours = date.getHours();
+    // Minutes part from the timestamp
+    let minutes = "" + date.getMinutes();
+    // Seconds part from the timestamp
+    let seconds = "0" + date.getSeconds();
+
+    // Will display time in 10:30:23 format
+    let formattedTime = hours + ':' + minutes.substring(-2) + ':' + seconds.substring(-2);
+    return formattedTime;
+}
+console.log(formattedTime);
+
+
 const options = {
     method: 'GET',
     headers: {
@@ -25,8 +44,8 @@ const getWeather = (city) => {
             wind_speed.innerHTML = response.wind_speed
             wind_speed2.innerHTML = response.wind_speed
             wind_degrees.innerHTML = response.wind_degrees
-            sunrise.innerHTML = response.sunrise
-            sunset.innerHTML = response.sunset
+            sunrise.innerHTML = formattedTime(response.sunrise);
+            sunset.innerHTML = formattedTime(response.sunset);
         })
         .catch(err => console.error(err));
 }
@@ -51,8 +70,8 @@ fetch('https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=London', opt
         feels_likeLondon.innerHTML = response.feels_like
         humidityLondon.innerHTML = response.humidity
         wind_speedLondon.innerHTML = response.wind_speed
-        sunriseLondon.innerHTML = response.sunrise
-        sunsetLondon.innerHTML = response.sunset
+        sunriseLondon.innerHTML = formattedTime(response.sunrise)
+        sunsetLondon.innerHTML = formattedTime(response.sunset)
     })
     .catch(err => console.error(err));
 
@@ -69,8 +88,8 @@ fetch('https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=New York', o
         feels_likeNewYork.innerHTML = response.feels_like
         humidityNewYork.innerHTML = response.humidity
         wind_speedNewYork.innerHTML = response.wind_speed
-        sunriseNewYork.innerHTML = response.sunrise
-        sunsetNewYork.innerHTML = response.sunset
+        sunriseNewYork.innerHTML = formattedTime(response.sunrise)
+        sunsetNewYork.innerHTML = formattedTime(response.sunset)
     })
     .catch(err => console.error(err));
 
@@ -87,8 +106,8 @@ fetch('https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=Tokyo', opti
         feels_likeTokyo.innerHTML = response.feels_like
         humidityTokyo.innerHTML = response.humidity
         wind_speedTokyo.innerHTML = response.wind_speed
-        sunriseTokyo.innerHTML = response.sunrise
-        sunsetTokyo.innerHTML = response.sunset
+        sunriseTokyo.innerHTML = formattedTime(response.sunrise)
+        sunsetTokyo.innerHTML = formattedTime(response.sunset)
     })
     .catch(err => console.error(err));
 
@@ -105,8 +124,8 @@ fetch('https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=Kolkata', op
         feels_likeKolkata.innerHTML = response.feels_like
         humidityKolkata.innerHTML = response.humidity
         wind_speedKolkata.innerHTML = response.wind_speed
-        sunriseKolkata.innerHTML = response.sunrise
-        sunsetKolkata.innerHTML = response.sunset
+        sunriseKolkata.innerHTML = formattedTime(response.sunrise)
+        sunsetKolkata.innerHTML = formattedTime(response.sunset)
     })
     .catch(err => console.error(err));
 
@@ -123,8 +142,8 @@ fetch('https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=Sydney', opt
         feels_likeSydney.innerHTML = response.feels_like
         humiditySydney.innerHTML = response.humidity
         wind_speedSydney.innerHTML = response.wind_speed
-        sunriseSydney.innerHTML = response.sunrise
-        sunsetSydney.innerHTML = response.sunset
+        sunriseSydney.innerHTML = formattedTime(response.sunrise)
+        sunsetSydney.innerHTML = formattedTime(response.sunset)
     })
     .catch(err => console.error(err));
 
@@ -141,7 +160,7 @@ fetch('https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=Dubai', opti
         feels_likeDubai.innerHTML = response.feels_like
         humidityDubai.innerHTML = response.humidity
         wind_speedDubai.innerHTML = response.wind_speed
-        sunriseDubai.innerHTML = response.sunrise
-        sunsetDubai.innerHTML = response.sunset
+        sunriseDubai.innerHTML = formattedTime(response.sunrise)
+        sunsetDubai.innerHTML = formattedTime(response.sunset)
     })
     .catch(err => console.error(err));
